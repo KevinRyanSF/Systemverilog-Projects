@@ -1,0 +1,16 @@
+
+State Machine - |DE1_SOC_golden_top|controle:my_controle|estado
+Name estado.p4 estado.p3 estado.p2 estado.p1 estado.p5 
+estado.p1 0 0 0 0 0 
+estado.p2 0 0 1 1 0 
+estado.p3 0 1 0 1 0 
+estado.p4 1 0 0 1 0 
+estado.p5 0 0 0 1 1 
+
+State Machine - |DE1_SOC_golden_top|controle:my_controle|elev_parado
+Name elev_parado.pf elev_parado.count_down elev_parado.pa elev_parado.desativar_motor elev_parado.d_botoes 
+elev_parado.desativar_motor 0 0 0 0 0 
+elev_parado.pa 0 0 1 1 0 
+elev_parado.count_down 0 1 0 1 0 
+elev_parado.pf 1 0 0 1 0 
+elev_parado.d_botoes 0 0 0 1 1 

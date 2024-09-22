@@ -1,0 +1,3 @@
+platform_setup.tcl
+filelist.txt
+DE1_SOC_golden_top.v
