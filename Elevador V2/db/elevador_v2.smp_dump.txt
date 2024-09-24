@@ -1,0 +1,37 @@
+
+State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|elev_slc
+Name elev_slc.B 
+elev_slc.A 0 
+elev_slc.B 1 
+
+State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|sub_verifica
+Name sub_verifica.verifica_sentido sub_verifica.pega_sinal sub_verifica.verifica_nostop sub_verifica.verifica_alerta sub_verifica.sub_final 
+sub_verifica.verifica_alerta 0 0 0 0 0 
+sub_verifica.verifica_nostop 0 0 1 1 0 
+sub_verifica.pega_sinal 0 1 0 1 0 
+sub_verifica.verifica_sentido 1 0 0 1 0 
+sub_verifica.sub_final 0 0 0 1 1 
+
+State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|control
+Name control.envia_sinal control.selec_elev control.calc_dist control.verific_disp control.desativa_sinal 
+control.verific_disp 0 0 0 0 0 
+control.calc_dist 0 0 1 1 0 
+control.selec_elev 0 1 0 1 0 
+control.envia_sinal 1 0 0 1 0 
+control.desativa_sinal 0 0 0 1 1 
+
+State Machine - |DE1_SOC_golden_top|elevador:elevadorB|elev_parado
+Name elev_parado.pf elev_parado.count_down elev_parado.pa elev_parado.desativar_motor elev_parado.d_botoes 
+elev_parado.desativar_motor 0 0 0 0 0 
+elev_parado.pa 0 0 1 1 0 
+elev_parado.count_down 0 1 0 1 0 
+elev_parado.pf 1 0 0 1 0 
+elev_parado.d_botoes 0 0 0 1 1 
+
+State Machine - |DE1_SOC_golden_top|elevador:elevadorA|elev_parado
+Name elev_parado.pf elev_parado.count_down elev_parado.pa elev_parado.desativar_motor elev_parado.d_botoes 
+elev_parado.desativar_motor 0 0 0 0 0 
+elev_parado.pa 0 0 1 1 0 
+elev_parado.count_down 0 1 0 1 0 
+elev_parado.pf 1 0 0 1 0 
+elev_parado.d_botoes 0 0 0 1 1 

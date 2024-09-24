@@ -5,9 +5,9 @@
  
 	Módulos utilizados:
 		Elevador - Linha 51;       						Sistema que gerencia as chamadas internas, função NoStop e alerta do elevador
-		Controladora - Linha: 916; 						Sistema que gerencia as chamadas externas para dois elevadores, decidindo o melhor 
-		Divisor de frequência - Linha: 844; 			Utilizado para deixar o Clock mais lento e ser possível simular o sistema em uma FPGA 
-		Sequenciador de pavimentos - Linha: 1779;  	Utilizado para simular as transições de pavimentos dos elevadores
+		Controladora - Linha: 912; 						Sistema que gerencia as chamadas externas para dois elevadores, decidindo o melhor 
+		Divisor de frequência - Linha: 840; 			Utilizado para deixar o Clock mais lento e ser possível simular o sistema em uma FPGA 
+		Sequenciador de pavimentos - Linha: 1775;  	Utilizado para simular as transições de pavimentos dos elevadores
 		
 	
 	Todos os parametros utilizados nos módulos estão no início de cada um. Caso deseje mudar algum, pode utilziar da legenda para alterá-los.
@@ -18,15 +18,15 @@
 			time_porta - Linha: 67; 		Utilizado para determinar quantos pulsos de clock a porta ficará aberta;
 			
 		CONTROLADORA:
-			num_call - Linha: 934;  		Utilizado para definir quantas chamadas externas existirão, deve ser calculado por: ((Número de andares - 1) * 2)
-			MAX_INT - Linha: 935; 			Utilizado para criar um máximo inteiro possível, ajudando a decidir qual elevador mais eficiente (NÃO DEVE SER MUDADO)
+			num_call - Linha: 930;  		Utilizado para definir quantas chamadas externas existirão, deve ser calculado por: ((Número de andares - 1) * 2)
+			MAX_INT - Linha: 931; 			Utilizado para criar um máximo inteiro possível, ajudando a decidir qual elevador mais eficiente (NÃO DEVE SER MUDADO)
 			
 		DIVISOR DE FREQUENCIA:
-			num_clock - Linha: 846; 		Utilizado para determinar quantas vezes o clock original deve ser ativo para que seja gerado um clock dividido
+			num_clock - Linha: 842; 		Utilizado para determinar quantas vezes o clock original deve ser ativo para que seja gerado um clock dividido
 			
 		SEQUENCIADOR DE PAVIMENTOS:
-			time_p - Linha: 1783; 			Tempo que o elevador ficará no pavimento
-			time_s - Linha: 1786; 			Tempo que o elevador ficará com o sinal abaixado
+			time_p - Linha: 1779; 			Tempo que o elevador ficará no pavimento
+			time_s - Linha: 1782; 			Tempo que o elevador ficará com o sinal abaixado
 			
  
  
@@ -84,7 +84,7 @@ module elevador (	input     					reset,
 
 	// 00 = parado, 01 = subindo, 10 = descendo | Serve para armazenar o estado do motor, antes dele parar e priorizar este valor ao voltar a funcionar.
 	int cont; // serve para contar o tempo de porta aberta.
-	int cont_led;
+	int cont_led = 0;
 	
 	logic
 		i1, i2, i3, i4, i5, 
@@ -102,7 +102,6 @@ module elevador (	input     					reset,
 			motor <= 2'b10;      // Motor parado
 			sentidoMotor <= 2'b10; // Estado do motor (parado)
       	cont  <= 0;
-			cont_led <= 0;
 			port1 <= 0;
 			port2 <= 0;
 			port3 <= 0;
@@ -602,12 +601,11 @@ module elevador (	input     					reset,
 		end
    end
 
-   always @(posedge bi1 or negedge sp1 or alerta_leds or posedge reset)begin
-		$display("Entrou pelo alternador");
+   always @(posedge bi1 or negedge sp1 or posedge alerta_leds or posedge reset)begin
 		if(!sp1 || reset) begin
 			i1 <= 0;
 			l1 <= 0; // leds dos botões internos se atualizam juntamente com a memória dos botões...
-		end else if(bi1 || reset) begin
+		end else if(bi1) begin
 			i1 <= 1;
 			l1 <= 1; //... se repete para todos os aways de chamada de botões internos
 		end else if(alerta_leds) begin
@@ -626,7 +624,7 @@ module elevador (	input     					reset,
 		end
    end
 
-   always @(posedge bi2 or negedge sp2 or alerta_leds or posedge reset)begin
+   always @(posedge bi2 or negedge sp2 or posedge alerta_leds or posedge reset)begin
 		if(!sp2 || reset) begin
 			i2 <= 0;
 			l2 <= 0; // leds dos botões internos se atualizam juntamente com a memória dos botões...
@@ -649,7 +647,7 @@ module elevador (	input     					reset,
 		end
    end
 
-   always @(posedge bi3 or negedge sp3 or alerta_leds or posedge reset)begin
+   always @(posedge bi3 or negedge sp3 or posedge alerta_leds or posedge reset)begin
 		if(!sp3 || reset) begin
 			i3 <= 0;
 			l3 <= 0; // leds dos botões internos se atualizam juntamente com a memória dos botões...
@@ -672,7 +670,7 @@ module elevador (	input     					reset,
 		end
    end
 
-   always @(posedge bi4 or negedge sp4 or alerta_leds or posedge reset)begin
+   always @(posedge bi4 or negedge sp4 or posedge alerta_leds or posedge reset)begin
 		if(!sp4 || reset) begin
 			i4 <= 0;
 			l4 <= 0; // leds dos botões internos se atualizam juntamente com a memória dos botões...
@@ -695,7 +693,7 @@ module elevador (	input     					reset,
 		end
    end
 	
-   always @(posedge bi5 or negedge sp5 or alerta_leds or posedge reset)begin
+   always @(posedge bi5 or negedge sp5 or posedge alerta_leds or posedge reset)begin
 		if(!sp5 || reset) begin
 			i5 <= 0;
 			l5 <= 0; // leds dos botões internos se atualizam juntamente com a memória dos botões...
@@ -825,11 +823,9 @@ module elevador (	input     					reset,
 				if (cont_led < (time_porta / 5)) begin
 					cont_led ++;
 					alerta_leds = 0;
-					$display("Time: %0t, Entrou no alternador, cont: %d, alternador: %0b", $time, cont_led, alerta_leds);
 				end else begin
 					alerta_leds = 1;
 					cont_led = 0;
-					$display("Time: %0t, Entrou no alternador reset, cont: %d, alternador: %0b", $time, cont_led, alerta_leds);
 				end
 				
 			end
@@ -1571,7 +1567,7 @@ module controladora (input     				reset,
 				end
 				
 				5'b00000: begin
-					alertaOutA <= 0;
+					alertaOutB <= 0;
 				end
 				
 				default: begin
@@ -1702,9 +1698,9 @@ module controladora (input     				reset,
 				
 				P5: begin
 					if ((motorA == DESCENDO) || (motorA == PARADO)) begin
-						d_leds0 = 1;
+						d_leds7 = 1;
 					end else begin
-						d_leds0 = 0;
+						d_leds7 = 0;
 					end
 				end			
 			endcase
@@ -1759,9 +1755,9 @@ module controladora (input     				reset,
 				
 				P5: begin
 					if ((motorB == DESCENDO) || (motorB == PARADO)) begin
-						d_leds0 = 1;
+						d_leds7 = 1;
 					end else begin
-						d_leds0 = 0;
+						d_leds7 = 0;
 					end
 				end
 			endcase

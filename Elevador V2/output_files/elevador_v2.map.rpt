@@ -1,5 +1,5 @@
 Analysis & Synthesis report for elevador_v2
-Sun Sep 22 12:46:18 2024
+Tue Sep 24 01:28:22 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -13,11 +13,28 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
- 12. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|elev_slc
+  9. State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|sub_verifica
+ 10. State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|control
+ 11. State Machine - |DE1_SOC_golden_top|elevador:elevadorB|elev_parado
+ 12. State Machine - |DE1_SOC_golden_top|elevador:elevadorA|elev_parado
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Parameter Settings for User Entity Instance: divfreq:div
+ 20. Parameter Settings for User Entity Instance: elevador:elevadorA
+ 21. Parameter Settings for User Entity Instance: elevador:elevadorB
+ 22. Parameter Settings for User Entity Instance: controladora:mycontroladora
+ 23. Port Connectivity Checks: "controladora:mycontroladora"
+ 24. Port Connectivity Checks: "elevador:elevadorB"
+ 25. Port Connectivity Checks: "elevador:elevadorA"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -44,13 +61,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Sep 22 12:46:18 2024          ;
+; Analysis & Synthesis Status     ; Successful - Tue Sep 24 01:28:22 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; elevador_v2                                    ;
 ; Top-level Entity Name           ; DE1_SOC_golden_top                             ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 0                                              ;
+; Total registers                 ; 338                                            ;
 ; Total pins                      ; 241                                            ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -159,58 +176,306 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                     ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                       ; Library ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
-; DE1_SOC_golden_top.v             ; yes             ; User Verilog HDL File  ; C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v ;         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
+; DE1_SOC_golden_top.v             ; yes             ; User Verilog HDL File        ; C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v ;         ;
+; elevador_v2.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv       ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                      ;
-+---------------------------------------------+--------------------+
-; Resource                                    ; Usage              ;
-+---------------------------------------------+--------------------+
-; Estimate of Logic utilization (ALMs needed) ; 0                  ;
-;                                             ;                    ;
-; Combinational ALUT usage for logic          ; 0                  ;
-;     -- 7 input functions                    ; 0                  ;
-;     -- 6 input functions                    ; 0                  ;
-;     -- 5 input functions                    ; 0                  ;
-;     -- 4 input functions                    ; 0                  ;
-;     -- <=3 input functions                  ; 0                  ;
-;                                             ;                    ;
-; Dedicated logic registers                   ; 0                  ;
-;                                             ;                    ;
-; I/O pins                                    ; 241                ;
-;                                             ;                    ;
-; Total DSP Blocks                            ; 0                  ;
-;                                             ;                    ;
-; Maximum fan-out node                        ; AUD_ADCLRCK~output ;
-; Maximum fan-out                             ; 1                  ;
-; Total fan-out                               ; 337                ;
-; Average fan-out                             ; 0.58               ;
-+---------------------------------------------+--------------------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 590          ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 978          ;
+;     -- 7 input functions                    ; 10           ;
+;     -- 6 input functions                    ; 188          ;
+;     -- 5 input functions                    ; 91           ;
+;     -- 4 input functions                    ; 160          ;
+;     -- <=3 input functions                  ; 529          ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 338          ;
+;                                             ;              ;
+; I/O pins                                    ; 241          ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[0]~input ;
+; Maximum fan-out                             ; 327          ;
+; Total fan-out                               ; 5185         ;
+; Average fan-out                             ; 2.74         ;
++---------------------------------------------+--------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                           ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name        ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
-; |DE1_SOC_golden_top        ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 241  ; 0            ; |DE1_SOC_golden_top ; DE1_SOC_golden_top ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Entity Name        ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------+--------------------+--------------+
+; |DE1_SOC_golden_top              ; 978 (0)             ; 338 (0)                   ; 0                 ; 0          ; 241  ; 0            ; |DE1_SOC_golden_top                             ; DE1_SOC_golden_top ; work         ;
+;    |controladora:mycontroladora| ; 246 (246)           ; 95 (95)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SOC_golden_top|controladora:mycontroladora ; controladora       ; work         ;
+;    |divfreq:div|                 ; 39 (39)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SOC_golden_top|divfreq:div                 ; divfreq            ; work         ;
+;    |elevador:elevadorA|          ; 270 (270)           ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SOC_golden_top|elevador:elevadorA          ; elevador           ; work         ;
+;    |elevador:elevadorB|          ; 271 (271)           ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SOC_golden_top|elevador:elevadorB          ; elevador           ; work         ;
+;    |seq_pavimento:pavimentosA|   ; 76 (76)             ; 40 (40)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SOC_golden_top|seq_pavimento:pavimentosA   ; seq_pavimento      ; work         ;
+;    |seq_pavimento:pavimentosB|   ; 76 (76)             ; 40 (40)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SOC_golden_top|seq_pavimento:pavimentosB   ; seq_pavimento      ; work         ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------+
+; State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|elev_slc ;
++------------+-------------------------------------------------------------+
+; Name       ; elev_slc.B                                                  ;
++------------+-------------------------------------------------------------+
+; elev_slc.A ; 0                                                           ;
+; elev_slc.B ; 1                                                           ;
++------------+-------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|sub_verifica                                                                                                   ;
++-------------------------------+-------------------------------+-------------------------+------------------------------+------------------------------+------------------------+
+; Name                          ; sub_verifica.verifica_sentido ; sub_verifica.pega_sinal ; sub_verifica.verifica_nostop ; sub_verifica.verifica_alerta ; sub_verifica.sub_final ;
++-------------------------------+-------------------------------+-------------------------+------------------------------+------------------------------+------------------------+
+; sub_verifica.verifica_alerta  ; 0                             ; 0                       ; 0                            ; 0                            ; 0                      ;
+; sub_verifica.verifica_nostop  ; 0                             ; 0                       ; 1                            ; 1                            ; 0                      ;
+; sub_verifica.pega_sinal       ; 0                             ; 1                       ; 0                            ; 1                            ; 0                      ;
+; sub_verifica.verifica_sentido ; 1                             ; 0                       ; 0                            ; 1                            ; 0                      ;
+; sub_verifica.sub_final        ; 0                             ; 0                       ; 0                            ; 1                            ; 1                      ;
++-------------------------------+-------------------------------+-------------------------+------------------------------+------------------------------+------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE1_SOC_golden_top|controladora:mycontroladora|control                                                               ;
++------------------------+---------------------+--------------------+-------------------+----------------------+------------------------+
+; Name                   ; control.envia_sinal ; control.selec_elev ; control.calc_dist ; control.verific_disp ; control.desativa_sinal ;
++------------------------+---------------------+--------------------+-------------------+----------------------+------------------------+
+; control.verific_disp   ; 0                   ; 0                  ; 0                 ; 0                    ; 0                      ;
+; control.calc_dist      ; 0                   ; 0                  ; 1                 ; 1                    ; 0                      ;
+; control.selec_elev     ; 0                   ; 1                  ; 0                 ; 1                    ; 0                      ;
+; control.envia_sinal    ; 1                   ; 0                  ; 0                 ; 1                    ; 0                      ;
+; control.desativa_sinal ; 0                   ; 0                  ; 0                 ; 1                    ; 1                      ;
++------------------------+---------------------+--------------------+-------------------+----------------------+------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE1_SOC_golden_top|elevador:elevadorB|elev_parado                                                                          ;
++-----------------------------+----------------+------------------------+----------------+-----------------------------+----------------------+
+; Name                        ; elev_parado.pf ; elev_parado.count_down ; elev_parado.pa ; elev_parado.desativar_motor ; elev_parado.d_botoes ;
++-----------------------------+----------------+------------------------+----------------+-----------------------------+----------------------+
+; elev_parado.desativar_motor ; 0              ; 0                      ; 0              ; 0                           ; 0                    ;
+; elev_parado.pa              ; 0              ; 0                      ; 1              ; 1                           ; 0                    ;
+; elev_parado.count_down      ; 0              ; 1                      ; 0              ; 1                           ; 0                    ;
+; elev_parado.pf              ; 1              ; 0                      ; 0              ; 1                           ; 0                    ;
+; elev_parado.d_botoes        ; 0              ; 0                      ; 0              ; 1                           ; 1                    ;
++-----------------------------+----------------+------------------------+----------------+-----------------------------+----------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE1_SOC_golden_top|elevador:elevadorA|elev_parado                                                                          ;
++-----------------------------+----------------+------------------------+----------------+-----------------------------+----------------------+
+; Name                        ; elev_parado.pf ; elev_parado.count_down ; elev_parado.pa ; elev_parado.desativar_motor ; elev_parado.d_botoes ;
++-----------------------------+----------------+------------------------+----------------+-----------------------------+----------------------+
+; elev_parado.desativar_motor ; 0              ; 0                      ; 0              ; 0                           ; 0                    ;
+; elev_parado.pa              ; 0              ; 0                      ; 1              ; 1                           ; 0                    ;
+; elev_parado.count_down      ; 0              ; 1                      ; 0              ; 1                           ; 0                    ;
+; elev_parado.pf              ; 1              ; 0                      ; 0              ; 1                           ; 0                    ;
+; elev_parado.d_botoes        ; 0              ; 0                      ; 0              ; 1                           ; 1                    ;
++-----------------------------+----------------+------------------------+----------------+-----------------------------+----------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                 ;
++------------------------------------------------------+-------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                 ; Free of Timing Hazards ;
++------------------------------------------------------+-------------------------------------+------------------------+
+; elevador:elevadorA|displayInterno[0]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorA|displayInterno[1]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorA|displayInterno[2]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorA|displayInterno[3]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorA|displayInterno[4]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorA|displayInterno[5]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorA|displayInterno[6]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorB|displayInterno[0]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorB|displayInterno[1]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorB|displayInterno[2]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorB|displayInterno[3]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorB|displayInterno[4]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorB|displayInterno[5]                 ; VCC                                 ; yes                    ;
+; elevador:elevadorB|displayInterno[6]                 ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoA[0]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoA[1]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoA[2]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoA[3]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoA[4]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoA[5]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoA[6]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoB[0]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoB[1]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoB[2]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoB[3]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoB[4]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoB[5]       ; VCC                                 ; yes                    ;
+; controladora:mycontroladora|displayInternoB[6]       ; VCC                                 ; yes                    ;
+; elevador:elevadorA|alerta_leds                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorB|alerta_leds                       ; elevador:elevadorB|alerta           ; yes                    ;
+; controladora:mycontroladora|d_leds0                  ; controladora:mycontroladora|d_leds0 ; yes                    ;
+; controladora:mycontroladora|d_leds1                  ; controladora:mycontroladora|d_leds1 ; yes                    ;
+; controladora:mycontroladora|d_leds2                  ; controladora:mycontroladora|d_leds1 ; yes                    ;
+; controladora:mycontroladora|d_leds3                  ; controladora:mycontroladora|d_leds3 ; yes                    ;
+; controladora:mycontroladora|d_leds4                  ; controladora:mycontroladora|d_leds3 ; yes                    ;
+; controladora:mycontroladora|d_leds5                  ; controladora:mycontroladora|d_leds5 ; yes                    ;
+; controladora:mycontroladora|d_leds6                  ; controladora:mycontroladora|d_leds5 ; yes                    ;
+; controladora:mycontroladora|d_leds7                  ; controladora:mycontroladora|d_leds7 ; yes                    ;
+; elevador:elevadorA|cont_led[31]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[30]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[29]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[28]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[27]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[26]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[25]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[24]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[23]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[22]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[21]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[20]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[19]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[18]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[17]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[16]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[15]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[10]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[9]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[8]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[7]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[6]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[5]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[4]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[14]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[13]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[12]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[11]                      ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[3]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[2]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorA|cont_led[1]                       ; elevador:elevadorA|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[31]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[30]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[29]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[28]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[27]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[26]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[25]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[24]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[23]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[22]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[21]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[20]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[19]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[18]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[17]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[16]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[15]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[10]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[9]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[8]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[7]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[6]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[5]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[4]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[14]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[13]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[12]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[11]                      ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[3]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[2]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; elevador:elevadorB|cont_led[1]                       ; elevador:elevadorB|alerta           ; yes                    ;
+; Number of user-specified and inferred latches = 102  ;                                     ;                        ;
++------------------------------------------------------+-------------------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                           ;
++-----------------------------------------------------+--------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                     ;
++-----------------------------------------------------+--------------------------------------------------------+
+; elevador:elevadorB|estado[3]                        ; Stuck at GND due to stuck port data_in                 ;
+; elevador:elevadorA|estado[3]                        ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes0               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes1               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes2               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes3               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes4               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes5               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes6               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|d_botoes7               ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|andar_call[3]           ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|pavimentoA[3]           ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|pavimentoB[3]           ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|distanciaA[5..9,11..30] ; Merged with controladora:mycontroladora|distanciaA[10] ;
+; controladora:mycontroladora|distanciaB[5..9,11..30] ; Merged with controladora:mycontroladora|distanciaB[10] ;
+; seq_pavimento:pavimentosB|pavimento[3..9,11..31]    ; Merged with seq_pavimento:pavimentosB|pavimento[10]    ;
+; seq_pavimento:pavimentosA|pavimento[3..9,11..31]    ; Merged with seq_pavimento:pavimentosA|pavimento[10]    ;
+; seq_pavimento:pavimentosB|pavimento[10]             ; Stuck at GND due to stuck port data_in                 ;
+; seq_pavimento:pavimentosA|pavimento[10]             ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|sub_verifica~9          ; Lost fanout                                            ;
+; controladora:mycontroladora|sub_verifica~10         ; Lost fanout                                            ;
+; controladora:mycontroladora|sub_verifica~12         ; Lost fanout                                            ;
+; controladora:mycontroladora|sub_verifica~13         ; Lost fanout                                            ;
+; controladora:mycontroladora|control~9               ; Lost fanout                                            ;
+; controladora:mycontroladora|control~10              ; Lost fanout                                            ;
+; controladora:mycontroladora|control~12              ; Lost fanout                                            ;
+; controladora:mycontroladora|control~13              ; Lost fanout                                            ;
+; elevador:elevadorB|elev_parado~5                    ; Lost fanout                                            ;
+; elevador:elevadorB|elev_parado~6                    ; Lost fanout                                            ;
+; elevador:elevadorB|elev_parado~8                    ; Lost fanout                                            ;
+; elevador:elevadorB|elev_parado~9                    ; Lost fanout                                            ;
+; elevador:elevadorA|elev_parado~5                    ; Lost fanout                                            ;
+; elevador:elevadorA|elev_parado~6                    ; Lost fanout                                            ;
+; elevador:elevadorA|elev_parado~8                    ; Lost fanout                                            ;
+; elevador:elevadorA|elev_parado~9                    ; Lost fanout                                            ;
+; controladora:mycontroladora|sub_verifica.sub_final  ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|distanciaA[31]          ; Stuck at GND due to stuck port data_in                 ;
+; controladora:mycontroladora|distanciaB[31]          ; Stuck at GND due to stuck port data_in                 ;
+; Total Number of Removed Registers = 140             ;                                                        ;
++-----------------------------------------------------+--------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                         ;
++-------------------------------------------+---------------------------+---------------------------------------------+
+; Register name                             ; Reason for Removal        ; Registers Removed due to This Register      ;
++-------------------------------------------+---------------------------+---------------------------------------------+
+; controladora:mycontroladora|andar_call[3] ; Stuck at GND              ; controladora:mycontroladora|distanciaA[31], ;
+;                                           ; due to stuck port data_in ; controladora:mycontroladora|distanciaB[31]  ;
++-------------------------------------------+---------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -218,14 +483,143 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 338   ;
+; Number of registers using Synchronous Clear  ; 164   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 314   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 170   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; seq_pavimento:pavimentosA|s1            ; 14      ;
+; seq_pavimento:pavimentosB|s1            ; 14      ;
+; seq_pavimento:pavimentosA|pavimento[0]  ; 15      ;
+; elevador:elevadorA|motor[1]             ; 21      ;
+; seq_pavimento:pavimentosB|pavimento[0]  ; 15      ;
+; elevador:elevadorB|motor[1]             ; 21      ;
+; elevador:elevadorA|sp1                  ; 3       ;
+; elevador:elevadorA|sp2                  ; 3       ;
+; elevador:elevadorA|sp3                  ; 3       ;
+; elevador:elevadorA|sp4                  ; 3       ;
+; elevador:elevadorA|sp5                  ; 3       ;
+; elevador:elevadorB|sp1                  ; 3       ;
+; elevador:elevadorB|sp2                  ; 3       ;
+; elevador:elevadorB|sp3                  ; 3       ;
+; elevador:elevadorB|sp4                  ; 3       ;
+; elevador:elevadorB|sp5                  ; 3       ;
+; elevador:elevadorA|sentidoMotor[1]      ; 27      ;
+; elevador:elevadorB|sentidoMotor[1]      ; 27      ;
+; Total number of inverted registers = 18 ;         ;
++-----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE1_SOC_golden_top|controladora:mycontroladora|distanciaB[0]          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE1_SOC_golden_top|controladora:mycontroladora|distanciaA[0]          ;
+; 32:1               ; 6 bits    ; 126 LEs       ; 18 LEs               ; 108 LEs                ; Yes        ; |DE1_SOC_golden_top|elevador:elevadorB|estado[0]                       ;
+; 32:1               ; 6 bits    ; 126 LEs       ; 18 LEs               ; 108 LEs                ; Yes        ; |DE1_SOC_golden_top|controladora:mycontroladora|pavimentoA[2]          ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |DE1_SOC_golden_top|controladora:mycontroladora|current_call_index[15] ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 0 LEs                ; 150 LEs                ; Yes        ; |DE1_SOC_golden_top|seq_pavimento:pavimentosB|count[16]                ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 0 LEs                ; 150 LEs                ; Yes        ; |DE1_SOC_golden_top|seq_pavimento:pavimentosA|count[6]                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 0 LEs                ; 160 LEs                ; Yes        ; |DE1_SOC_golden_top|elevador:elevadorB|cont[14]                        ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 0 LEs                ; 160 LEs                ; Yes        ; |DE1_SOC_golden_top|elevador:elevadorA|cont[29]                        ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |DE1_SOC_golden_top|seq_pavimento:pavimentosB|count[0]                 ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |DE1_SOC_golden_top|seq_pavimento:pavimentosA|count[0]                 ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; Yes        ; |DE1_SOC_golden_top|seq_pavimento:pavimentosB|pavimento[1]             ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; Yes        ; |DE1_SOC_golden_top|seq_pavimento:pavimentosA|pavimento[1]             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; No         ; |DE1_SOC_golden_top|controladora:mycontroladora|Selector32             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |DE1_SOC_golden_top|controladora:mycontroladora|sub_verifica           ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; No         ; |DE1_SOC_golden_top|elevador:elevadorB|elev_parado                     ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; No         ; |DE1_SOC_golden_top|elevador:elevadorA|elev_parado                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divfreq:div ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; num_clock      ; 3     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: elevador:elevadorA ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; time_porta     ; 50    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: elevador:elevadorB ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; time_porta     ; 50    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controladora:mycontroladora ;
++----------------+------------+--------------------------------------------+
+; Parameter Name ; Value      ; Type                                       ;
++----------------+------------+--------------------------------------------+
+; num_call       ; 8          ; Signed Integer                             ;
+; MAX_INT        ; 2147483647 ; Signed Integer                             ;
++----------------+------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controladora:mycontroladora"                                                              ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; alertaOutA ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; alertaOutB ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "elevador:elevadorB"                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; l1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l3   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l4   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l5   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "elevador:elevadorA"                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; l1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l3   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l4   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; l5   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -233,14 +627,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
+; arriav_ff             ; 338                         ;
+;     CLR               ; 131                         ;
+;     CLR SCLR          ; 36                          ;
+;     ENA               ; 23                          ;
+;     ENA CLR           ; 19                          ;
+;     ENA CLR SCLR      ; 128                         ;
+;     plain             ; 1                           ;
 ; arriav_io_obuf        ; 96                          ;
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; arriav_lcell_comb     ; 980                         ;
+;     arith             ; 288                         ;
+;         1 data inputs ; 255                         ;
+;         2 data inputs ; 1                           ;
+;         4 data inputs ; 32                          ;
+;     extend            ; 10                          ;
+;         7 data inputs ; 10                          ;
+;     normal            ; 682                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 136                         ;
+;         3 data inputs ; 129                         ;
+;         4 data inputs ; 128                         ;
+;         5 data inputs ; 91                          ;
+;         6 data inputs ; 188                         ;
 ; boundary_port         ; 241                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 7.80                        ;
+; Average LUT depth     ; 4.59                        ;
 +-----------------------+-----------------------------+
 
 
@@ -249,7 +662,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -259,315 +672,405 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sun Sep 22 12:46:07 2024
+    Info: Processing started: Tue Sep 24 01:28:09 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off elevador_v2 -c elevador_v2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file de1_soc_golden_top.v
-    Info (12023): Found entity 1: DE1_SOC_golden_top File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 54
+    Info (12023): Found entity 1: DE1_SOC_golden_top File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 54
 Info (12021): Found 5 design units, including 4 entities, in source file elevador_v2.sv
-    Info (12022): Found design unit 1: my_functions (SystemVerilog) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/elevador_v2.sv Line: 1
-    Info (12023): Found entity 1: elevador File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/elevador_v2.sv Line: 15
-    Info (12023): Found entity 2: divfreq File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/elevador_v2.sv Line: 808
-    Info (12023): Found entity 3: controladora File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/elevador_v2.sv Line: 880
-    Info (12023): Found entity 4: seq_pavimento File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/elevador_v2.sv Line: 1743
+    Info (12022): Found design unit 1: my_functions (SystemVerilog) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 37
+    Info (12023): Found entity 1: elevador File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 51
+    Info (12023): Found entity 2: divfreq File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 840
+    Info (12023): Found entity 3: controladora File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 912
+    Info (12023): Found entity 4: seq_pavimento File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1775
 Warning (12019): Can't analyze file -- file controladora.sv is missing
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(291): created implicit net for "E1A" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 291
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(292): created implicit net for "E2A" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 292
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(293): created implicit net for "E3A" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 293
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(294): created implicit net for "E4A" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 294
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(295): created implicit net for "E5A" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 295
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(327): created implicit net for "E1B" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 327
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(328): created implicit net for "E2B" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 328
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(329): created implicit net for "E3B" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 329
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(330): created implicit net for "E4B" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 330
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SOC_golden_top.v(331): created implicit net for "E5B" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 331
 Info (12127): Elaborating entity "DE1_SOC_golden_top" for the top level hierarchy
-Warning (10034): Output port "DRAM_ADDR" at DE1_SOC_golden_top.v(100) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-Warning (10034): Output port "DRAM_BA" at DE1_SOC_golden_top.v(101) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 101
-Warning (10034): Output port "HEX0" at DE1_SOC_golden_top.v(133) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-Warning (10034): Output port "HEX1" at DE1_SOC_golden_top.v(134) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-Warning (10034): Output port "HEX2" at DE1_SOC_golden_top.v(135) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-Warning (10034): Output port "HEX3" at DE1_SOC_golden_top.v(136) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-Warning (10034): Output port "HEX4" at DE1_SOC_golden_top.v(137) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-Warning (10034): Output port "HEX5" at DE1_SOC_golden_top.v(138) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-Warning (10034): Output port "LEDR" at DE1_SOC_golden_top.v(210) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-Warning (10034): Output port "VGA_B" at DE1_SOC_golden_top.v(237) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-Warning (10034): Output port "VGA_G" at DE1_SOC_golden_top.v(240) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-Warning (10034): Output port "VGA_R" at DE1_SOC_golden_top.v(242) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-Warning (10034): Output port "ADC_CONVST" at DE1_SOC_golden_top.v(59) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 59
-Warning (10034): Output port "ADC_DIN" at DE1_SOC_golden_top.v(60) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 60
-Warning (10034): Output port "ADC_SCLK" at DE1_SOC_golden_top.v(62) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 62
-Warning (10034): Output port "AUD_DACDAT" at DE1_SOC_golden_top.v(72) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 72
-Warning (10034): Output port "AUD_XCK" at DE1_SOC_golden_top.v(74) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 74
-Warning (10034): Output port "DRAM_CAS_N" at DE1_SOC_golden_top.v(102) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 102
-Warning (10034): Output port "DRAM_CKE" at DE1_SOC_golden_top.v(103) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 103
-Warning (10034): Output port "DRAM_CLK" at DE1_SOC_golden_top.v(104) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 104
-Warning (10034): Output port "DRAM_CS_N" at DE1_SOC_golden_top.v(105) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 105
-Warning (10034): Output port "DRAM_LDQM" at DE1_SOC_golden_top.v(107) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 107
-Warning (10034): Output port "DRAM_RAS_N" at DE1_SOC_golden_top.v(108) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 108
-Warning (10034): Output port "DRAM_UDQM" at DE1_SOC_golden_top.v(109) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 109
-Warning (10034): Output port "DRAM_WE_N" at DE1_SOC_golden_top.v(110) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 110
-Warning (10034): Output port "FAN_CTRL" at DE1_SOC_golden_top.v(115) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 115
-Warning (10034): Output port "FPGA_I2C_SCLK" at DE1_SOC_golden_top.v(120) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 120
-Warning (10034): Output port "IRDA_TXD" at DE1_SOC_golden_top.v(200) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 200
-Warning (10034): Output port "TD_RESET_N" at DE1_SOC_golden_top.v(231) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 231
-Warning (10034): Output port "VGA_BLANK_N" at DE1_SOC_golden_top.v(238) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 238
-Warning (10034): Output port "VGA_CLK" at DE1_SOC_golden_top.v(239) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 239
-Warning (10034): Output port "VGA_HS" at DE1_SOC_golden_top.v(241) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 241
-Warning (10034): Output port "VGA_SYNC_N" at DE1_SOC_golden_top.v(243) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 243
-Warning (10034): Output port "VGA_VS" at DE1_SOC_golden_top.v(246) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 246
+Warning (10034): Output port "DRAM_ADDR" at DE1_SOC_golden_top.v(100) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+Warning (10034): Output port "DRAM_BA" at DE1_SOC_golden_top.v(101) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 101
+Warning (10034): Output port "VGA_B" at DE1_SOC_golden_top.v(237) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+Warning (10034): Output port "VGA_G" at DE1_SOC_golden_top.v(240) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+Warning (10034): Output port "VGA_R" at DE1_SOC_golden_top.v(242) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+Warning (10034): Output port "ADC_CONVST" at DE1_SOC_golden_top.v(59) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 59
+Warning (10034): Output port "ADC_DIN" at DE1_SOC_golden_top.v(60) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 60
+Warning (10034): Output port "ADC_SCLK" at DE1_SOC_golden_top.v(62) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 62
+Warning (10034): Output port "AUD_DACDAT" at DE1_SOC_golden_top.v(72) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 72
+Warning (10034): Output port "AUD_XCK" at DE1_SOC_golden_top.v(74) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 74
+Warning (10034): Output port "DRAM_CAS_N" at DE1_SOC_golden_top.v(102) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 102
+Warning (10034): Output port "DRAM_CKE" at DE1_SOC_golden_top.v(103) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 103
+Warning (10034): Output port "DRAM_CLK" at DE1_SOC_golden_top.v(104) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 104
+Warning (10034): Output port "DRAM_CS_N" at DE1_SOC_golden_top.v(105) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 105
+Warning (10034): Output port "DRAM_LDQM" at DE1_SOC_golden_top.v(107) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 107
+Warning (10034): Output port "DRAM_RAS_N" at DE1_SOC_golden_top.v(108) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 108
+Warning (10034): Output port "DRAM_UDQM" at DE1_SOC_golden_top.v(109) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 109
+Warning (10034): Output port "DRAM_WE_N" at DE1_SOC_golden_top.v(110) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 110
+Warning (10034): Output port "FAN_CTRL" at DE1_SOC_golden_top.v(115) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 115
+Warning (10034): Output port "FPGA_I2C_SCLK" at DE1_SOC_golden_top.v(120) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 120
+Warning (10034): Output port "IRDA_TXD" at DE1_SOC_golden_top.v(200) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 200
+Warning (10034): Output port "TD_RESET_N" at DE1_SOC_golden_top.v(231) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 231
+Warning (10034): Output port "VGA_BLANK_N" at DE1_SOC_golden_top.v(238) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 238
+Warning (10034): Output port "VGA_CLK" at DE1_SOC_golden_top.v(239) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 239
+Warning (10034): Output port "VGA_HS" at DE1_SOC_golden_top.v(241) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 241
+Warning (10034): Output port "VGA_SYNC_N" at DE1_SOC_golden_top.v(243) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 243
+Warning (10034): Output port "VGA_VS" at DE1_SOC_golden_top.v(246) has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 246
+Info (12128): Elaborating entity "divfreq" for hierarchy "divfreq:div" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 279
+Info (12128): Elaborating entity "elevador" for hierarchy "elevador:elevadorA" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 317
+Warning (10235): Verilog HDL Always Construct warning at elevador_v2.sv(797): variable "alerta" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 797
+Warning (10270): Verilog HDL Case Statement warning at elevador_v2.sv(799): incomplete case statement has no default case item File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 799
+Warning (10235): Verilog HDL Always Construct warning at elevador_v2.sv(823): variable "cont_led" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 823
+Warning (10235): Verilog HDL Always Construct warning at elevador_v2.sv(824): variable "cont_led" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 824
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(796): inferring latch(es) for variable "displayInterno", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(796): inferring latch(es) for variable "cont_led", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(796): inferring latch(es) for variable "alerta_leds", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "alerta_leds" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[0]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[1]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[2]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[3]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[4]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[5]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[6]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[7]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[8]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[9]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[10]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[11]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[12]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[13]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[14]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[15]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[16]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[17]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[18]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[19]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[20]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[21]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[22]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[23]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[24]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[25]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[26]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[27]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[28]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[29]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[30]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "cont_led[31]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "displayInterno[0]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "displayInterno[1]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "displayInterno[2]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "displayInterno[3]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "displayInterno[4]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "displayInterno[5]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (10041): Inferred latch for "displayInterno[6]" at elevador_v2.sv(796) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 796
+Info (12128): Elaborating entity "controladora" for hierarchy "controladora:mycontroladora" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 405
+Info (10264): Verilog HDL Case Statement information at elevador_v2.sv(1036): all case item expressions in this case statement are onehot File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1036
+Warning (10762): Verilog HDL Case Statement warning at elevador_v2.sv(1242): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1242
+Warning (10762): Verilog HDL Case Statement warning at elevador_v2.sv(1322): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1322
+Warning (10270): Verilog HDL Case Statement warning at elevador_v2.sv(1583): incomplete case statement has no default case item File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1583
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1580): inferring latch(es) for variable "displayInternoA", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Warning (10270): Verilog HDL Case Statement warning at elevador_v2.sv(1613): incomplete case statement has no default case item File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1613
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1610): inferring latch(es) for variable "displayInternoB", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds0", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds1", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds2", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds3", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds4", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds5", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds6", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Warning (10240): Verilog HDL Always Construct warning at elevador_v2.sv(1640): inferring latch(es) for variable "d_leds7", which holds its previous value in one or more paths through the always construct File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1640
+Info (10041): Inferred latch for "d_leds7" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "d_leds6" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "d_leds5" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "d_leds4" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "d_leds3" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "d_leds2" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "d_leds1" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "d_leds0" at elevador_v2.sv(1651) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1651
+Info (10041): Inferred latch for "displayInternoB[0]" at elevador_v2.sv(1610) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Info (10041): Inferred latch for "displayInternoB[1]" at elevador_v2.sv(1610) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Info (10041): Inferred latch for "displayInternoB[2]" at elevador_v2.sv(1610) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Info (10041): Inferred latch for "displayInternoB[3]" at elevador_v2.sv(1610) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Info (10041): Inferred latch for "displayInternoB[4]" at elevador_v2.sv(1610) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Info (10041): Inferred latch for "displayInternoB[5]" at elevador_v2.sv(1610) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Info (10041): Inferred latch for "displayInternoB[6]" at elevador_v2.sv(1610) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1610
+Info (10041): Inferred latch for "displayInternoA[0]" at elevador_v2.sv(1580) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Info (10041): Inferred latch for "displayInternoA[1]" at elevador_v2.sv(1580) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Info (10041): Inferred latch for "displayInternoA[2]" at elevador_v2.sv(1580) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Info (10041): Inferred latch for "displayInternoA[3]" at elevador_v2.sv(1580) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Info (10041): Inferred latch for "displayInternoA[4]" at elevador_v2.sv(1580) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Info (10041): Inferred latch for "displayInternoA[5]" at elevador_v2.sv(1580) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Info (10041): Inferred latch for "displayInternoA[6]" at elevador_v2.sv(1580) File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1580
+Info (12128): Elaborating entity "seq_pavimento" for hierarchy "seq_pavimento:pavimentosA" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 417
+Warning (10762): Verilog HDL Case Statement warning at elevador_v2.sv(1795): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1795
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[8]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[9]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[10]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[11]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[12]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[13]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[14]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[15]" and its non-tri-state driver. File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 70
-    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 71
-    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 73
-    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 106
-    Warning (13040): bidirectional pin "FPGA_I2C_SDAT" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 121
-    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 126
-    Warning (13040): bidirectional pin "GPIO_1[0]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[1]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 127
-    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 215
-    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 216
-    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 217
-    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 218
+    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_1[0]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[1]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 70
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 71
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 73
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 106
+    Warning (13040): bidirectional pin "FPGA_I2C_SDAT" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 121
+    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 126
+    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 215
+    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 216
+    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 217
+    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 218
+Warning (13012): Latch controladora:mycontroladora|d_leds0 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13012): Latch controladora:mycontroladora|d_leds1 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13012): Latch controladora:mycontroladora|d_leds2 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13012): Latch controladora:mycontroladora|d_leds3 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13012): Latch controladora:mycontroladora|d_leds4 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13012): Latch controladora:mycontroladora|d_leds5 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13012): Latch controladora:mycontroladora|d_leds6 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13012): Latch controladora:mycontroladora|d_leds7 has unsafe behavior File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 996
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controladora:mycontroladora|pavimentoB[2] File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 1543
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "elevador:elevadorA|i1" is converted into an equivalent circuit using register "elevador:elevadorA|i1~_emulated" and latch "elevador:elevadorA|i1~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorA|i2" is converted into an equivalent circuit using register "elevador:elevadorA|i2~_emulated" and latch "elevador:elevadorA|i2~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorA|i3" is converted into an equivalent circuit using register "elevador:elevadorA|i3~_emulated" and latch "elevador:elevadorA|i3~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorA|i4" is converted into an equivalent circuit using register "elevador:elevadorA|i4~_emulated" and latch "elevador:elevadorA|i4~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorA|i5" is converted into an equivalent circuit using register "elevador:elevadorA|i5~_emulated" and latch "elevador:elevadorA|i5~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorB|i1" is converted into an equivalent circuit using register "elevador:elevadorB|i1~_emulated" and latch "elevador:elevadorB|i1~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorB|i2" is converted into an equivalent circuit using register "elevador:elevadorB|i2~_emulated" and latch "elevador:elevadorB|i2~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorB|i3" is converted into an equivalent circuit using register "elevador:elevadorB|i3~_emulated" and latch "elevador:elevadorB|i3~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorB|i4" is converted into an equivalent circuit using register "elevador:elevadorB|i4~_emulated" and latch "elevador:elevadorB|i4~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+    Warning (13310): Register "elevador:elevadorB|i5" is converted into an equivalent circuit using register "elevador:elevadorB|i5~_emulated" and latch "elevador:elevadorB|i5~1" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/elevador_v2.sv Line: 90
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "GPIO_1[8]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13010): Node "GPIO_1[9]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13010): Node "GPIO_1[10]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13010): Node "GPIO_1[11]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13010): Node "GPIO_1[12]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13010): Node "GPIO_1[13]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13010): Node "GPIO_1[14]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
+    Warning (13010): Node "GPIO_1[15]~synth" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 127
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 59
-    Warning (13410): Pin "ADC_DIN" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 60
-    Warning (13410): Pin "ADC_SCLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 62
-    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 72
-    Warning (13410): Pin "AUD_XCK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 74
-    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 100
-    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 101
-    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 101
-    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 102
-    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 103
-    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 104
-    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 105
-    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 107
-    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 108
-    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 109
-    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 110
-    Warning (13410): Pin "FAN_CTRL" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 115
-    Warning (13410): Pin "FPGA_I2C_SCLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 120
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 133
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 134
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 135
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 136
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 137
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 138
-    Warning (13410): Pin "IRDA_TXD" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 200
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 210
-    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 231
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 237
-    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 238
-    Warning (13410): Pin "VGA_CLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 239
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 240
-    Warning (13410): Pin "VGA_HS" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 241
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 242
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 243
-    Warning (13410): Pin "VGA_VS" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 246
-Info (144001): Generated suppressed messages file C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/output_files/elevador_v2.map.smsg
+    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 59
+    Warning (13410): Pin "ADC_DIN" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 60
+    Warning (13410): Pin "ADC_SCLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 62
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 72
+    Warning (13410): Pin "AUD_XCK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 74
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 100
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 101
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 101
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 102
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 103
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 104
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 105
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 107
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 108
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 109
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 110
+    Warning (13410): Pin "FAN_CTRL" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 115
+    Warning (13410): Pin "FPGA_I2C_SCLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 120
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 135
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 135
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 135
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 135
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 135
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 135
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 135
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 136
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 136
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 136
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 136
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 136
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 136
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 136
+    Warning (13410): Pin "IRDA_TXD" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 200
+    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 231
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 237
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 238
+    Warning (13410): Pin "VGA_CLK" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 239
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 240
+    Warning (13410): Pin "VGA_HS" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 241
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 242
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 243
+    Warning (13410): Pin "VGA_VS" is stuck at GND File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 246
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/output_files/elevador_v2.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 32 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ADC_DOUT" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 61
-    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 69
-    Warning (15610): No output dependent on input pin "CLOCK2_50" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 80
-    Warning (15610): No output dependent on input pin "CLOCK3_50" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 85
-    Warning (15610): No output dependent on input pin "CLOCK4_50" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 90
-    Warning (15610): No output dependent on input pin "CLOCK_50" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 95
-    Warning (15610): No output dependent on input pin "IRDA_RXD" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 199
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 205
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 205
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 205
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 205
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 223
-    Warning (15610): No output dependent on input pin "TD_CLK27" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 228
-    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 229
-    Warning (15610): No output dependent on input pin "TD_HS" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 230
-    Warning (15610): No output dependent on input pin "TD_VS" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/DE1_SOC_golden_top.v Line: 232
-Info (21057): Implemented 241 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 28 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_DOUT" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 61
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 69
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 85
+    Warning (15610): No output dependent on input pin "CLOCK4_50" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 90
+    Warning (15610): No output dependent on input pin "CLOCK_50" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 95
+    Warning (15610): No output dependent on input pin "IRDA_RXD" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 199
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 205
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 205
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 205
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 223
+    Warning (15610): No output dependent on input pin "TD_CLK27" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 228
+    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 229
+    Warning (15610): No output dependent on input pin "TD_HS" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 230
+    Warning (15610): No output dependent on input pin "TD_VS" File: C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/DE1_SOC_golden_top.v Line: 232
+Info (21057): Implemented 1380 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 32 input pins
     Info (21059): Implemented 113 output pins
     Info (21060): Implemented 96 bidirectional pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 280 warnings
-    Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Sun Sep 22 12:46:18 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:16
+    Info (21061): Implemented 1139 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 300 warnings
+    Info: Peak virtual memory: 4887 megabytes
+    Info: Processing ended: Tue Sep 24 01:28:22 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:18
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2 - Kevin e Thiago/output_files/elevador_v2.map.smsg.
+The suppressed messages can be found in C:/Users/kevin/OneDrive/Documentos/Projetos FPGA/Elevador V2/output_files/elevador_v2.map.smsg.
 
 

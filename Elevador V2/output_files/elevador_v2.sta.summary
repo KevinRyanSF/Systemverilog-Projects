@@ -2,4 +2,1460 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'divfreq:div|clk_i'
+Slack : -14.394
+TNS   : -1864.086
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[7]'
+Slack : -10.733
+TNS   : -10.733
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[1]'
+Slack : -7.109
+TNS   : -7.109
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[4]'
+Slack : -7.046
+TNS   : -7.046
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[2]'
+Slack : -6.518
+TNS   : -6.518
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK2_50'
+Slack : -5.101
+TNS   : -114.502
+
+Type  : Slow 1100mV 85C Model Setup 'elevador:elevadorB|alerta'
+Slack : -4.207
+TNS   : -122.614
+
+Type  : Slow 1100mV 85C Model Setup 'elevador:elevadorA|alerta'
+Slack : -4.046
+TNS   : -117.411
+
+Type  : Slow 1100mV 85C Model Setup 'controladora:mycontroladora|pavimentoA[0]'
+Slack : -3.156
+TNS   : -22.757
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[0]'
+Slack : -2.278
+TNS   : -2.278
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[3]'
+Slack : -0.043
+TNS   : -0.043
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[6]'
+Slack : 0.005
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'GPIO_1[5]'
+Slack : 0.008
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[6]'
+Slack : -10.061
+TNS   : -10.061
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[3]'
+Slack : -8.432
+TNS   : -8.432
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[5]'
+Slack : -8.144
+TNS   : -8.144
+
+Type  : Slow 1100mV 85C Model Hold 'divfreq:div|clk_i'
+Slack : -0.795
+TNS   : -1.815
+
+Type  : Slow 1100mV 85C Model Hold 'controladora:mycontroladora|pavimentoA[0]'
+Slack : 0.104
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[0]'
+Slack : 0.375
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK2_50'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[4]'
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[7]'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[1]'
+Slack : 0.461
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'GPIO_1[2]'
+Slack : 0.461
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'elevador:elevadorA|alerta'
+Slack : 0.795
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'elevador:elevadorB|alerta'
+Slack : 0.832
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[7]'
+Slack : -10.386
+TNS   : -10.386
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[2]'
+Slack : -7.109
+TNS   : -7.109
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[1]'
+Slack : -6.959
+TNS   : -6.959
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[5]'
+Slack : -3.120
+TNS   : -3.120
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[6]'
+Slack : -3.076
+TNS   : -3.076
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[3]'
+Slack : -3.048
+TNS   : -3.048
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be1A'
+Slack : -2.301
+TNS   : -4.596
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[0]'
+Slack : -2.112
+TNS   : -2.112
+
+Type  : Slow 1100mV 85C Model Recovery 'GPIO_1[4]'
+Slack : -2.067
+TNS   : -2.067
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be5B'
+Slack : -2.040
+TNS   : -4.075
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be1B'
+Slack : -1.960
+TNS   : -3.918
+
+Type  : Slow 1100mV 85C Model Recovery 'elevador:elevadorA|alerta_leds'
+Slack : -1.952
+TNS   : -8.895
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be5A'
+Slack : -1.940
+TNS   : -3.878
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be3B'
+Slack : -1.855
+TNS   : -3.704
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be4B'
+Slack : -1.785
+TNS   : -3.567
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be3A'
+Slack : -1.778
+TNS   : -3.554
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be4A'
+Slack : -1.744
+TNS   : -3.486
+
+Type  : Slow 1100mV 85C Model Recovery 'elevador:elevadorB|alerta_leds'
+Slack : -1.682
+TNS   : -7.796
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be2A'
+Slack : -1.552
+TNS   : -3.102
+
+Type  : Slow 1100mV 85C Model Recovery 'controladora:mycontroladora|be2B'
+Slack : -1.377
+TNS   : -2.749
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[6]'
+Slack : -3.953
+TNS   : -3.953
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[3]'
+Slack : -3.115
+TNS   : -3.115
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[5]'
+Slack : -3.009
+TNS   : -3.009
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[4]'
+Slack : -1.908
+TNS   : -1.908
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be2B'
+Slack : 0.027
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be5A'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be2A'
+Slack : 0.489
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be1A'
+Slack : 0.567
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be3A'
+Slack : 0.620
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be5B'
+Slack : 0.663
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be4B'
+Slack : 0.676
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be4A'
+Slack : 0.677
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be3B'
+Slack : 0.711
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'controladora:mycontroladora|be1B'
+Slack : 0.767
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'elevador:elevadorB|alerta_leds'
+Slack : 0.987
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'elevador:elevadorA|alerta_leds'
+Slack : 1.002
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[0]'
+Slack : 1.107
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[1]'
+Slack : 1.151
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[7]'
+Slack : 1.402
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'GPIO_1[2]'
+Slack : 1.592
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[2]'
+Slack : -0.688
+TNS   : -2.798
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : -0.685
+TNS   : -30.889
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[4]'
+Slack : -0.625
+TNS   : -2.396
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[1]'
+Slack : -0.601
+TNS   : -2.310
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[3]'
+Slack : -0.580
+TNS   : -2.243
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[7]'
+Slack : -0.466
+TNS   : -1.799
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[6]'
+Slack : -0.462
+TNS   : -1.781
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'divfreq:div|clk_i'
+Slack : -0.461
+TNS   : -174.211
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[5]'
+Slack : -0.433
+TNS   : -1.635
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorA|alerta_leds'
+Slack : -0.394
+TNS   : -2.650
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorB|alerta_leds'
+Slack : -0.394
+TNS   : -2.634
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be1A'
+Slack : -0.394
+TNS   : -1.484
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be2B'
+Slack : -0.394
+TNS   : -1.342
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'GPIO_1[0]'
+Slack : -0.394
+TNS   : -1.334
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be5B'
+Slack : -0.394
+TNS   : -1.277
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be1B'
+Slack : -0.394
+TNS   : -1.237
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be4A'
+Slack : -0.394
+TNS   : -1.203
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be3A'
+Slack : -0.394
+TNS   : -1.193
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be3B'
+Slack : -0.394
+TNS   : -1.147
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be2A'
+Slack : -0.394
+TNS   : -1.131
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be4B'
+Slack : -0.394
+TNS   : -1.081
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be5A'
+Slack : -0.394
+TNS   : -1.066
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorB|alerta'
+Slack : 0.153
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|pavimentoA[0]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorA|alerta'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'divfreq:div|clk_i'
+Slack : -13.984
+TNS   : -1813.089
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[7]'
+Slack : -10.276
+TNS   : -10.276
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[1]'
+Slack : -6.736
+TNS   : -6.736
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[4]'
+Slack : -6.731
+TNS   : -6.731
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[2]'
+Slack : -6.075
+TNS   : -6.075
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK2_50'
+Slack : -5.191
+TNS   : -112.849
+
+Type  : Slow 1100mV 0C Model Setup 'elevador:elevadorB|alerta'
+Slack : -4.267
+TNS   : -123.578
+
+Type  : Slow 1100mV 0C Model Setup 'elevador:elevadorA|alerta'
+Slack : -4.114
+TNS   : -118.404
+
+Type  : Slow 1100mV 0C Model Setup 'controladora:mycontroladora|pavimentoA[0]'
+Slack : -3.052
+TNS   : -22.102
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[0]'
+Slack : -2.009
+TNS   : -2.009
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[3]'
+Slack : -0.085
+TNS   : -0.085
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[5]'
+Slack : -0.018
+TNS   : -0.018
+
+Type  : Slow 1100mV 0C Model Setup 'GPIO_1[6]'
+Slack : -0.018
+TNS   : -0.018
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[6]'
+Slack : -9.668
+TNS   : -9.668
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[3]'
+Slack : -8.137
+TNS   : -8.137
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[5]'
+Slack : -7.959
+TNS   : -7.959
+
+Type  : Slow 1100mV 0C Model Hold 'divfreq:div|clk_i'
+Slack : -0.740
+TNS   : -1.616
+
+Type  : Slow 1100mV 0C Model Hold 'controladora:mycontroladora|pavimentoA[0]'
+Slack : -0.014
+TNS   : -0.014
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK2_50'
+Slack : 0.380
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[0]'
+Slack : 0.392
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[1]'
+Slack : 0.416
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[4]'
+Slack : 0.420
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[7]'
+Slack : 0.469
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'GPIO_1[2]'
+Slack : 0.480
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'elevador:elevadorA|alerta'
+Slack : 0.733
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'elevador:elevadorB|alerta'
+Slack : 0.775
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[7]'
+Slack : -9.889
+TNS   : -9.889
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[2]'
+Slack : -6.608
+TNS   : -6.608
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[1]'
+Slack : -6.523
+TNS   : -6.523
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[6]'
+Slack : -2.918
+TNS   : -2.918
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[3]'
+Slack : -2.881
+TNS   : -2.881
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[5]'
+Slack : -2.811
+TNS   : -2.811
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be1A'
+Slack : -2.227
+TNS   : -4.448
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[4]'
+Slack : -1.959
+TNS   : -1.959
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be5B'
+Slack : -1.942
+TNS   : -3.879
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be1B'
+Slack : -1.935
+TNS   : -3.867
+
+Type  : Slow 1100mV 0C Model Recovery 'GPIO_1[0]'
+Slack : -1.840
+TNS   : -1.840
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be5A'
+Slack : -1.833
+TNS   : -3.663
+
+Type  : Slow 1100mV 0C Model Recovery 'elevador:elevadorA|alerta_leds'
+Slack : -1.831
+TNS   : -8.295
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be3B'
+Slack : -1.769
+TNS   : -3.532
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be4A'
+Slack : -1.741
+TNS   : -3.479
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be3A'
+Slack : -1.715
+TNS   : -3.427
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be4B'
+Slack : -1.666
+TNS   : -3.328
+
+Type  : Slow 1100mV 0C Model Recovery 'elevador:elevadorB|alerta_leds'
+Slack : -1.593
+TNS   : -7.308
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be2A'
+Slack : -1.471
+TNS   : -2.939
+
+Type  : Slow 1100mV 0C Model Recovery 'controladora:mycontroladora|be2B'
+Slack : -1.274
+TNS   : -2.543
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[6]'
+Slack : -3.962
+TNS   : -3.962
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[5]'
+Slack : -3.194
+TNS   : -3.194
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[3]'
+Slack : -3.169
+TNS   : -3.169
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[4]'
+Slack : -1.988
+TNS   : -1.988
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be2B'
+Slack : 0.065
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be5A'
+Slack : 0.319
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be1A'
+Slack : 0.515
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be2A'
+Slack : 0.516
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be3A'
+Slack : 0.555
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be4A'
+Slack : 0.631
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be4B'
+Slack : 0.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be5B'
+Slack : 0.670
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be3B'
+Slack : 0.721
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'controladora:mycontroladora|be1B'
+Slack : 0.724
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[1]'
+Slack : 0.787
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[0]'
+Slack : 0.800
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'elevador:elevadorB|alerta_leds'
+Slack : 0.930
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'elevador:elevadorA|alerta_leds'
+Slack : 0.936
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[7]'
+Slack : 1.066
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'GPIO_1[2]'
+Slack : 1.129
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : -0.706
+TNS   : -28.477
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[2]'
+Slack : -0.656
+TNS   : -2.751
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[4]'
+Slack : -0.605
+TNS   : -2.443
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[1]'
+Slack : -0.575
+TNS   : -2.351
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[3]'
+Slack : -0.557
+TNS   : -2.284
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[7]'
+Slack : -0.548
+TNS   : -2.236
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[6]'
+Slack : -0.528
+TNS   : -2.174
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'divfreq:div|clk_i'
+Slack : -0.426
+TNS   : -168.073
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[5]'
+Slack : -0.426
+TNS   : -1.681
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorA|alerta_leds'
+Slack : -0.394
+TNS   : -2.677
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorB|alerta_leds'
+Slack : -0.394
+TNS   : -2.619
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be1A'
+Slack : -0.394
+TNS   : -1.442
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be2B'
+Slack : -0.394
+TNS   : -1.337
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'GPIO_1[0]'
+Slack : -0.394
+TNS   : -1.223
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be5B'
+Slack : -0.394
+TNS   : -1.211
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be1B'
+Slack : -0.394
+TNS   : -1.181
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be4A'
+Slack : -0.394
+TNS   : -1.171
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be3A'
+Slack : -0.394
+TNS   : -1.163
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be2A'
+Slack : -0.394
+TNS   : -1.143
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be3B'
+Slack : -0.394
+TNS   : -1.124
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be5A'
+Slack : -0.394
+TNS   : -1.069
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be4B'
+Slack : -0.394
+TNS   : -1.065
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorB|alerta'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|pavimentoA[0]'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorA|alerta'
+Slack : 0.248
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[7]'
+Slack : -8.708
+TNS   : -8.708
+
+Type  : Fast 1100mV 85C Model Setup 'divfreq:div|clk_i'
+Slack : -7.639
+TNS   : -987.439
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[4]'
+Slack : -5.880
+TNS   : -5.880
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[1]'
+Slack : -5.622
+TNS   : -5.622
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[2]'
+Slack : -4.952
+TNS   : -4.952
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK2_50'
+Slack : -3.171
+TNS   : -46.106
+
+Type  : Fast 1100mV 85C Model Setup 'elevador:elevadorB|alerta'
+Slack : -1.969
+TNS   : -56.363
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[0]'
+Slack : -1.968
+TNS   : -1.968
+
+Type  : Fast 1100mV 85C Model Setup 'elevador:elevadorA|alerta'
+Slack : -1.879
+TNS   : -53.397
+
+Type  : Fast 1100mV 85C Model Setup 'controladora:mycontroladora|pavimentoA[0]'
+Slack : -1.797
+TNS   : -11.540
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[3]'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[6]'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'GPIO_1[5]'
+Slack : 0.421
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[6]'
+Slack : -5.534
+TNS   : -5.534
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[5]'
+Slack : -4.449
+TNS   : -4.449
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[3]'
+Slack : -4.426
+TNS   : -4.426
+
+Type  : Fast 1100mV 85C Model Hold 'divfreq:div|clk_i'
+Slack : -0.552
+TNS   : -2.061
+
+Type  : Fast 1100mV 85C Model Hold 'controladora:mycontroladora|pavimentoA[0]'
+Slack : 0.100
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[0]'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[4]'
+Slack : 0.190
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK2_50'
+Slack : 0.203
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[2]'
+Slack : 0.220
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[7]'
+Slack : 0.220
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'GPIO_1[1]'
+Slack : 0.221
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'elevador:elevadorB|alerta'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'elevador:elevadorA|alerta'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[7]'
+Slack : -8.169
+TNS   : -8.169
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[1]'
+Slack : -5.375
+TNS   : -5.375
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[2]'
+Slack : -5.302
+TNS   : -5.302
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[6]'
+Slack : -2.876
+TNS   : -2.876
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[3]'
+Slack : -2.723
+TNS   : -2.723
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[5]'
+Slack : -2.618
+TNS   : -2.618
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[4]'
+Slack : -2.011
+TNS   : -2.011
+
+Type  : Fast 1100mV 85C Model Recovery 'GPIO_1[0]'
+Slack : -1.728
+TNS   : -1.728
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be1A'
+Slack : -1.283
+TNS   : -2.564
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be1B'
+Slack : -1.214
+TNS   : -2.428
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be3A'
+Slack : -1.102
+TNS   : -2.204
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be4A'
+Slack : -1.077
+TNS   : -2.154
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be5B'
+Slack : -1.061
+TNS   : -2.120
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be5A'
+Slack : -1.055
+TNS   : -2.110
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be3B'
+Slack : -0.964
+TNS   : -1.926
+
+Type  : Fast 1100mV 85C Model Recovery 'elevador:elevadorA|alerta_leds'
+Slack : -0.915
+TNS   : -4.086
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be4B'
+Slack : -0.867
+TNS   : -1.733
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be2A'
+Slack : -0.865
+TNS   : -1.730
+
+Type  : Fast 1100mV 85C Model Recovery 'elevador:elevadorB|alerta_leds'
+Slack : -0.743
+TNS   : -3.050
+
+Type  : Fast 1100mV 85C Model Recovery 'controladora:mycontroladora|be2B'
+Slack : -0.576
+TNS   : -1.150
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[6]'
+Slack : -1.511
+TNS   : -1.511
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[5]'
+Slack : -1.142
+TNS   : -1.142
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[3]'
+Slack : -1.015
+TNS   : -1.015
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[4]'
+Slack : -0.364
+TNS   : -0.364
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be2B'
+Slack : -0.197
+TNS   : -0.392
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be5A'
+Slack : 0.070
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be2A'
+Slack : 0.079
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be5B'
+Slack : 0.133
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be1A'
+Slack : 0.153
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be4B'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be3B'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be1B'
+Slack : 0.198
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be4A'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'controladora:mycontroladora|be3A'
+Slack : 0.236
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'elevador:elevadorB|alerta_leds'
+Slack : 0.365
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'elevador:elevadorA|alerta_leds'
+Slack : 0.384
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[0]'
+Slack : 1.104
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[1]'
+Slack : 1.438
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[2]'
+Slack : 1.573
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'GPIO_1[7]'
+Slack : 2.170
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : -0.761
+TNS   : -21.373
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[2]'
+Slack : -0.746
+TNS   : -3.494
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[7]'
+Slack : -0.745
+TNS   : -3.484
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[6]'
+Slack : -0.739
+TNS   : -3.457
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[3]'
+Slack : -0.695
+TNS   : -3.184
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[4]'
+Slack : -0.693
+TNS   : -3.160
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[1]'
+Slack : -0.678
+TNS   : -3.077
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[5]'
+Slack : -0.608
+TNS   : -2.617
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'GPIO_1[0]'
+Slack : -0.395
+TNS   : -1.328
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'divfreq:div|clk_i'
+Slack : -0.206
+TNS   : -8.014
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be1A'
+Slack : -0.112
+TNS   : -0.222
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be2B'
+Slack : -0.032
+TNS   : -0.063
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be5B'
+Slack : -0.013
+TNS   : -0.024
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be1B'
+Slack : 0.007
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be4A'
+Slack : 0.014
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorA|alerta_leds'
+Slack : 0.015
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be3A'
+Slack : 0.019
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be3B'
+Slack : 0.037
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be2A'
+Slack : 0.051
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorB|alerta_leds'
+Slack : 0.080
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be4B'
+Slack : 0.087
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|be5A'
+Slack : 0.090
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorB|alerta'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'controladora:mycontroladora|pavimentoA[0]'
+Slack : 0.263
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'elevador:elevadorA|alerta'
+Slack : 0.269
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[7]'
+Slack : -7.311
+TNS   : -7.311
+
+Type  : Fast 1100mV 0C Model Setup 'divfreq:div|clk_i'
+Slack : -7.112
+TNS   : -895.289
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[4]'
+Slack : -4.910
+TNS   : -4.910
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[1]'
+Slack : -4.624
+TNS   : -4.624
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[2]'
+Slack : -4.035
+TNS   : -4.035
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK2_50'
+Slack : -2.688
+TNS   : -39.171
+
+Type  : Fast 1100mV 0C Model Setup 'elevador:elevadorB|alerta'
+Slack : -1.747
+TNS   : -49.940
+
+Type  : Fast 1100mV 0C Model Setup 'elevador:elevadorA|alerta'
+Slack : -1.690
+TNS   : -47.618
+
+Type  : Fast 1100mV 0C Model Setup 'controladora:mycontroladora|pavimentoA[0]'
+Slack : -1.593
+TNS   : -10.079
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[0]'
+Slack : -1.574
+TNS   : -1.574
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[3]'
+Slack : 0.419
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[6]'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'GPIO_1[5]'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[6]'
+Slack : -5.260
+TNS   : -5.260
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[5]'
+Slack : -4.371
+TNS   : -4.371
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[3]'
+Slack : -4.267
+TNS   : -4.267
+
+Type  : Fast 1100mV 0C Model Hold 'divfreq:div|clk_i'
+Slack : -0.516
+TNS   : -2.418
+
+Type  : Fast 1100mV 0C Model Hold 'controladora:mycontroladora|pavimentoA[0]'
+Slack : 0.086
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[0]'
+Slack : 0.171
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[4]'
+Slack : 0.183
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK2_50'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[7]'
+Slack : 0.212
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[1]'
+Slack : 0.214
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'GPIO_1[2]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'elevador:elevadorA|alerta'
+Slack : 0.410
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'elevador:elevadorB|alerta'
+Slack : 0.412
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[7]'
+Slack : -6.837
+TNS   : -6.837
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[1]'
+Slack : -4.408
+TNS   : -4.408
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[2]'
+Slack : -4.325
+TNS   : -4.325
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[6]'
+Slack : -2.230
+TNS   : -2.230
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[3]'
+Slack : -2.124
+TNS   : -2.124
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[5]'
+Slack : -1.932
+TNS   : -1.932
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[4]'
+Slack : -1.586
+TNS   : -1.586
+
+Type  : Fast 1100mV 0C Model Recovery 'GPIO_1[0]'
+Slack : -1.360
+TNS   : -1.360
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be1A'
+Slack : -1.102
+TNS   : -2.202
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be1B'
+Slack : -1.060
+TNS   : -2.120
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be3A'
+Slack : -0.966
+TNS   : -1.932
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be4A'
+Slack : -0.956
+TNS   : -1.912
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be5B'
+Slack : -0.936
+TNS   : -1.870
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be5A'
+Slack : -0.884
+TNS   : -1.768
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be3B'
+Slack : -0.863
+TNS   : -1.724
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be4B'
+Slack : -0.789
+TNS   : -1.577
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be2A'
+Slack : -0.773
+TNS   : -1.546
+
+Type  : Fast 1100mV 0C Model Recovery 'elevador:elevadorA|alerta_leds'
+Slack : -0.768
+TNS   : -3.379
+
+Type  : Fast 1100mV 0C Model Recovery 'elevador:elevadorB|alerta_leds'
+Slack : -0.608
+TNS   : -2.474
+
+Type  : Fast 1100mV 0C Model Recovery 'controladora:mycontroladora|be2B'
+Slack : -0.457
+TNS   : -0.912
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[6]'
+Slack : -1.711
+TNS   : -1.711
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[5]'
+Slack : -1.477
+TNS   : -1.477
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[3]'
+Slack : -1.262
+TNS   : -1.262
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[4]'
+Slack : -0.574
+TNS   : -0.574
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be2B'
+Slack : -0.192
+TNS   : -0.382
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be5A'
+Slack : 0.033
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be2A'
+Slack : 0.062
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be1A'
+Slack : 0.093
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be5B'
+Slack : 0.099
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be1B'
+Slack : 0.124
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be4B'
+Slack : 0.131
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be4A'
+Slack : 0.141
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be3B'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'controladora:mycontroladora|be3A'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'elevador:elevadorB|alerta_leds'
+Slack : 0.291
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'elevador:elevadorA|alerta_leds'
+Slack : 0.303
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[0]'
+Slack : 0.851
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[1]'
+Slack : 0.947
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[2]'
+Slack : 1.020
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'GPIO_1[7]'
+Slack : 1.533
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[7]'
+Slack : -0.815
+TNS   : -3.994
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[6]'
+Slack : -0.813
+TNS   : -3.989
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : -0.788
+TNS   : -25.556
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[2]'
+Slack : -0.762
+TNS   : -3.672
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[4]'
+Slack : -0.728
+TNS   : -3.461
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[1]'
+Slack : -0.718
+TNS   : -3.407
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[3]'
+Slack : -0.709
+TNS   : -3.363
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[5]'
+Slack : -0.635
+TNS   : -2.876
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'GPIO_1[0]'
+Slack : -0.434
+TNS   : -1.659
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'divfreq:div|clk_i'
+Slack : -0.120
+TNS   : -2.364
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be1A'
+Slack : -0.050
+TNS   : -0.097
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be2B'
+Slack : 0.004
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be5B'
+Slack : 0.034
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorA|alerta_leds'
+Slack : 0.046
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be1B'
+Slack : 0.048
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be4A'
+Slack : 0.049
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be3A'
+Slack : 0.051
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be3B'
+Slack : 0.066
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be2A'
+Slack : 0.070
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorB|alerta_leds'
+Slack : 0.095
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be5A'
+Slack : 0.098
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|be4B'
+Slack : 0.105
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorB|alerta'
+Slack : 0.260
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'controladora:mycontroladora|pavimentoA[0]'
+Slack : 0.301
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'elevador:elevadorA|alerta'
+Slack : 0.310
+TNS   : 0.000
+
 ------------------------------------------------------------

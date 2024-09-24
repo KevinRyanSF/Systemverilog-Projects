@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri Sep 13 01:00:25 2024
+Fitter Status : Successful - Tue Sep 24 01:32:17 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : elevador_v2
 Top-level Entity Name : DE1_SOC_golden_top
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1 / 32,070 ( < 1 % )
-Total registers : 0
+Logic utilization (in ALMs) : 599 / 32,070 ( 2 % )
+Total registers : 371
 Total pins : 241 / 457 ( 53 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )

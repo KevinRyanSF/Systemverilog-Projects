@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Sun Sep 22 12:46:18 2024
+Analysis & Synthesis Status : Successful - Tue Sep 24 01:28:22 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : elevador_v2
 Top-level Entity Name : DE1_SOC_golden_top
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
+Total registers : 338
 Total pins : 241
 Total virtual pins : 0
 Total block memory bits : 0

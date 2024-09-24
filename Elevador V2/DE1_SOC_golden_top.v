@@ -252,6 +252,181 @@ module DE1_SOC_golden_top(
 
 
 
+	
+	assign HEX2 = 7'b1111111;
+	assign HEX3 = 7'b1111111;
+	
+
+  wire S1A, S2A, S3A, S4A, S5A;
+  wire S1B, S2B, S3B, S4B, S5B;
+  wire NOSTOPOUTA, NOSTOPOUTB;
+  wire ALERTAA, ALERTAB;
+  wire L1A, L2A, L3A, L4A, L5A;
+  wire L1B, L2B, L3B, L4B, L5B;
+  wire [1:0] MOTORA, MOTORB;
+  wire [1:0] SENTIDOMOTORA, SENTIDOMOTORB;
+  wire CLOCK_DIV;
+
+  // Definindo os sinais como reg e wire da controladora
+  reg BE1UP, BE2UP, BE2DOWN, BE3UP, BE3DOWN, BE4UP, BE4DOWN, BE5DOWN;
+  wire L1UP, L2UP, L2DOWN, L3UP, L3DOWN, L4UP, L4DOWN, L5DOWN;
+  wire ALERTAOUTA, ALERTAOUTB;
+
+  // Instancia o módulo do divisor de frequencia
+  divfreq div (
+    .reset(!KEY[0]),
+    .clock(CLOCK2_50),
+    .clk_i(CLOCK_DIV));
+
+
+  // Instâncias do módulo elevador
+  elevador elevadorA (
+    .reset(!KEY[0]),
+    .clock(CLOCK_DIV),
+    .bi1(GPIO_0[0]),
+    .bi2(GPIO_0[1]),
+    .bi3(GPIO_0[2]),
+    .bi4(GPIO_0[3]),
+    .bi5(GPIO_0[4]),
+    .be1(E1A),
+    .be2(E2A),
+    .be3(E3A),
+    .be4(E4A),
+    .be5(E5A),
+    .s1(S1A),
+    .s2(S2A),
+    .s3(S3A),
+    .s4(S4A),
+    .s5(S5A),
+    .l1(L1A),
+    .l2(L2A),
+    .l3(L3A),
+    .l4(L4A),
+    .l5(L5A),
+    .port1(LEDR[0]),
+    .port2(LEDR[1]),
+    .port3(LEDR[2]),
+    .port4(LEDR[3]),
+    .port5(LEDR[4]),
+    .noStopIn(SW[0]),
+    .noStopOut(NOSTOPOUTA),
+    .alerta(ALERTAA),
+    .motor(MOTORA),
+    .displayInterno(HEX0),
+    .sentidoMotor(SENTIDOMOTORA)
+  );
+
+  elevador elevadorB (
+    .reset(!KEY[0]),
+    .clock(CLOCK_DIV),
+    .bi1(GPIO_0[5]),
+    .bi2(GPIO_0[6]),
+    .bi3(GPIO_0[7]),
+    .bi4(GPIO_0[8]),
+    .bi5(GPIO_0[9]),
+    .be1(E1B),
+    .be2(E2B),
+    .be3(E3B),
+    .be4(E4B),
+    .be5(E5B),
+    .s1(S1B),
+    .s2(S2B),
+    .s3(S3B),
+    .s4(S4B),
+    .s5(S5B),
+    .l1(L1B),
+    .l2(L2B),
+    .l3(L3B),
+    .l4(L4B),
+    .l5(L5B),
+    .port1(LEDR[5]),
+    .port2(LEDR[6]),
+    .port3(LEDR[7]),
+    .port4(LEDR[8]),
+    .port5(LEDR[9]),
+    .noStopIn(SW[1]),
+    .noStopOut(NOSTOPOUTB),
+    .alerta(ALERTAB),
+    .motor(MOTORB),
+    .displayInterno(HEX1),
+    .sentidoMotor(SENTIDOMOTORB)
+  );
+
+  // Instância da controladora
+  controladora mycontroladora (
+    .reset(!KEY[0]),
+    .clock(CLOCK_DIV),
+    .be1Up	(GPIO_1[0]),
+    .be2Up	(GPIO_1[1]),
+    .be2Down(GPIO_1[2]),
+    .be3Up	(GPIO_1[3]),
+    .be3Down(GPIO_1[4]),
+    .be4Up	(GPIO_1[5]),
+    .be4Down(GPIO_1[6]),
+    .be5Down(GPIO_1[7]),
+    .s1A(S1A),
+    .s2A(S2A),
+    .s3A(S3A),
+    .s4A(S4A),
+    .s5A(S5A),
+    .s1B(S1B),
+    .s2B(S2B),
+    .s3B(S3B),
+    .s4B(S4B),
+    .s5B(S5B),
+    .sentidoMotorA(SENTIDOMOTORA),
+    .sentidoMotorB(SENTIDOMOTORB),
+    .alertaInA(ALERTAA),
+    .alertaInB(ALERTAB),
+    .l1Up	(GPIO_1[8]),
+    .l2Up	(GPIO_1[9]),
+    .l2Down	(GPIO_1[10]),
+    .l3Up	(GPIO_1[11]),
+    .l3Down	(GPIO_1[12]),
+    .l4Up	(GPIO_1[13]),
+    .l4Down	(GPIO_1[14]),
+    .l5Down	(GPIO_1[15]),
+    .displayInternoA(HEX4),
+    .displayInternoB(HEX5),
+    .alertaOutA(ALERTAOUTA),
+    .alertaOutB(ALERTAOUTB),
+    .be1A(E1A),
+    .be2A(E2A),
+    .be3A(E3A),
+    .be4A(E4A),
+    .be5A(E5A),
+    .be1B(E1B),
+    .be2B(E2B),
+    .be3B(E3B),
+    .be4B(E4B),
+    .be5B(E5B),
+    .noStopA(NOSTOPOUTA),
+    .noStopB(NOSTOPOUTB)
+  );
+
+   // Instâncias do sequenciador de pavimentos
+  seq_pavimento pavimentosA(
+    .clk(CLOCK_DIV),
+    .rst(!KEY[0]),
+    .motor(MOTORA),
+    .s1(S1A),
+    .s2(S2A),
+    .s3(S3A),
+    .s4(S4A),
+    .s5(S5A)
+  );
+
+  seq_pavimento pavimentosB(
+    .clk(CLOCK_DIV),
+    .rst(!KEY[0]),
+    .motor(MOTORB),
+    .s1(S1B),
+    .s2(S2B),
+    .s3(S3B),
+    .s4(S4B),
+    .s5(S5B)
+  );
+
 
 
 //=======================================================
